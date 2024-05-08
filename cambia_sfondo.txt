@@ -1,3 +1,5 @@
 powershell -Command "Invoke-WebRequest -Uri https://github.com/malwaresuca/image/raw/main/download.jpeg -OutFile "$env:USERPROFILE\Downloads\sfondo.jpg"
 
 reg add "HKEY_CURRENT_USER\Control Panel\Desktop" /v Wallpaper /t REG_SZ /d "%USERPROFILE%\Downloads\sfondo.jpg" /f
+
+RUNDLL32.EXE user32.dll,UpdatePerUserSystemParameters
